@@ -16,41 +16,27 @@ namespace Pokedex_C_Sharp
 
         //public int idSeleccionado;
         Conexion miConexion = new Conexion();
-        int idActual = 1;
-        DataTable pokemonPorNombre = new DataTable();
-        private VentanaPrincipal mainForm = null;
-        VentanaPrincipal VP = new VentanaPrincipal();
         private Image ConvierteBlobAImagen(byte[] img)
         {
             MemoryStream ms = new System.IO.MemoryStream(img);
             return (Image.FromStream(ms));
-
         }
-
         public VentanaSeleccionPokemon()
         {
-            
             InitializeComponent();
              dataGridView1.DataSource = miConexion.getTodos();
              dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
              dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
-
-     
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                if (int.Parse(buscaId.Text) < 1 || int.Parse(buscaId.Text) > 151)
-                {//Si el número es mayor que 151 o mnor que 1 hago fallar al programa para que salte al catch
-                    int prueba = int.Parse("gre");//Esto da fallo siempre
-                }
                 VentanaPrincipal v = new VentanaPrincipal();
                 v.idActual = int.Parse(buscaId.Text);
                 v.infoPokemons();
                 v.Show();
-                buscaId.Text = "";//Dejamo el buscador de ID vacío
+                buscaId.Text = "";//Dejamos el buscador de ID vacío
             }
             catch (Exception ex)
             {//Si el id no es valido salta un aviso
@@ -63,7 +49,6 @@ namespace Pokedex_C_Sharp
         {
             try
             {
-                Conexion c = new Conexion();
                 VentanaPrincipal v = new VentanaPrincipal();
                 v.idActual = int.Parse(miConexion.getPokemonPorNombre(buscaNombre.Text.ToLower()));
                 v.infoPokemons();
@@ -75,7 +60,6 @@ namespace Pokedex_C_Sharp
                 MessageBox.Show("Nombre no encontrado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 buscaNombre.Text = "";
             }
-       
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -84,7 +68,6 @@ namespace Pokedex_C_Sharp
             nombre.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
             id.Text = dataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString();
             tipo1.Text = dataGridView1.Rows[e.RowIndex].Cells["tipo"].Value.ToString();
-            
             especie.Text = dataGridView1.Rows[e.RowIndex].Cells["especie"].Value.ToString();
             habilidad.Text = dataGridView1.Rows[e.RowIndex].Cells["habilidad"].Value.ToString();
             peso.Text = dataGridView1.Rows[e.RowIndex].Cells["peso"].Value.ToString();
@@ -92,11 +75,6 @@ namespace Pokedex_C_Sharp
             descripcion.Text = dataGridView1.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
             movimiento4.Text = dataGridView1.Rows[e.RowIndex].Cells["habitat"].Value.ToString();
             pictureBox1.Image = ConvierteBlobAImagen((byte[])dataGridView1.Rows[e.RowIndex].Cells["miniatura"].Value);
-            //v.idActual = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString());
-            v.infoPokemons();
-            //v.Show();
         }
-
-       
     }
 }

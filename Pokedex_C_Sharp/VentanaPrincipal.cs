@@ -16,19 +16,16 @@ namespace Pokedex_C_Sharp
 
         Conexion miConexion = new Conexion();
         DataTable misPokemons = new DataTable();
-       
+      
        public int idActual = 1;//el pokemon que estamos viendo
         public VentanaPrincipal()
         {
             InitializeComponent();
-          
-
         }
         private Image ConvierteBlobAImagen(byte[] img) 
         {
             MemoryStream ms = new System.IO.MemoryStream(img);
             return (Image.FromStream(ms));
-          
         }
        
 
