@@ -39,7 +39,7 @@ namespace Pokedex_C_Sharp
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT nombre, especie FROM pokemon", conexion);
+                MySqlCommand consulta = new MySqlCommand("SELECT id,nombre FROM pokemon", conexion);
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable pokemons = new DataTable();
                 pokemons.Load(resultado);
@@ -69,6 +69,45 @@ namespace Pokedex_C_Sharp
                 }
                 conexion.Close();
                 return mensaje;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+        public String getPokemonPorNombre(String nombre)
+        {
+
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta =
+                    new MySqlCommand("SELECT id FROM pokemon WHERE LOWER(nombre) ='" + nombre + "'", conexion);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable pokemons = new DataTable();
+                pokemons.Load(resultado);
+                conexion.Close();
+                return pokemons.Rows[0]["id"].ToString();
+
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+        public DataTable getTodos()
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta =
+                    new MySqlCommand("SELECT id AS ID, nombre AS Nombre, CONCAT(altura, ' m') AS Altura, CONCAT(peso,' kg') AS Peso, " +
+                    "especie AS Especie, habitat AS Habitat, CONCAT(tipo1, ' ',tipo2) AS Tipo, habilidad AS Habilidad, descripcion AS Descripcion, imagen AS Miniatura FROM pokemon", conexion);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable pokemons = new DataTable();
+                pokemons.Load(resultado);
+                conexion.Close();
+                return pokemons;
             }
             catch (MySqlException e)
             {

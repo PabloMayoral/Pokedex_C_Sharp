@@ -63,6 +63,16 @@ namespace Pokedex_C_Sharp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondopokedexcsharp {
+            get {
+                object obj = ResourceManager.GetObject("fondopokedexcsharp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhatsApp_Image_2020_03_27_at_19_10_22 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2020-03-27 at 19.10.22", resourceCulture);
