@@ -94,7 +94,7 @@ namespace Pokedex_C_Sharp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VentanaSeleccionPokemon eligepokemon = new VentanaSeleccionPokemon();
+            Busacdor eligepokemon = new Busacdor();
             eligepokemon.ShowDialog();
            // idActual = eligepokemon.idSeleccionado;
             // MessageBox.Show(eligepokemon.idSeleccionado.ToString());

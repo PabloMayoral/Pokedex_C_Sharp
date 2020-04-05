@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Pokedex_C_Sharp
 {
-    public partial class VentanaSeleccionPokemon : Form
+    public partial class Busacdor : Form
     {
 
         //public int idSeleccionado;
@@ -21,7 +21,7 @@ namespace Pokedex_C_Sharp
             MemoryStream ms = new System.IO.MemoryStream(img);
             return (Image.FromStream(ms));
         }
-        public VentanaSeleccionPokemon()
+        public Busacdor()
         {
             InitializeComponent();
              dataGridView1.DataSource = miConexion.getTodos();

@@ -1,6 +1,6 @@
 ﻿namespace Pokedex_C_Sharp
 {
-    partial class VentanaSeleccionPokemon
+    partial class Busacdor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Busacdor));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buscaId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -204,7 +205,7 @@
             this.habilidad.TabIndex = 22;
             this.habilidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // VentanaSeleccionPokemon
+            // Busacdor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,8 +228,9 @@
             this.Controls.Add(this.buscaId);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox2);
-            this.Name = "VentanaSeleccionPokemon";
-            this.Text = "VentanaSeleccionPokemon";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Busacdor";
+            this.Text = "Busacdor";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
